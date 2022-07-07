@@ -17,6 +17,11 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint{
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException authException) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		if(request.getMethod().equals("OPTIONS")) {
+			response.addHeader("Access-Control-Allow-Origin", "*");
+			response.sendError(HttpServletResponse.SC_OK);
+			return;
+		}
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Unauthorized : Server");
 	}
 
