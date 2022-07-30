@@ -14,7 +14,7 @@
 	<name>exam</name>
 	<description>back end project for exam portal</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
