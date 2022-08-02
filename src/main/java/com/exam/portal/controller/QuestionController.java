@@ -45,7 +45,7 @@ public class QuestionController {
 		return ResponseEntity.ok(this.questionService.updateQuestion(question));
 	}
 	
-	@GetMapping("/{quizId}")
+	@GetMapping("/quiz/{quizId}")
 	public ResponseEntity<?> getAllQuestionOfQuiz(@PathVariable("quizId") Long quizId){
 		Quiz quiz=new Quiz();
 		quiz.setqId(quizId);
