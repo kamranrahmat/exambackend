@@ -45,8 +45,15 @@ public class QuestionController {
 		return ResponseEntity.ok(this.questionService.updateQuestion(question));
 	}
 	
-	@GetMapping("/quiz{qId}")
-	public ResponseEntity<?> getQuestions(@PathVariable("qId") Long quizId){
+	@GetMapping("/{quizId}")
+	public ResponseEntity<?> getAllQuestionOfQuiz(@PathVariable("quizId") Long quizId){
+		Quiz quiz=new Quiz();
+		quiz.setqId(quizId);
+		return ResponseEntity.ok(this.questionService.getQuestionsOfQuiz(quiz));
+	}
+	
+	@GetMapping("/quizonexam/{qId}")
+	public ResponseEntity<?> getQuestionsOnExam(@PathVariable("qId") Long quizId){
 //		Quiz quiz=new Quiz();
 //		quiz.setqId(quizId);
 //		Set<Question> questionsOfQuiz = this.questionService.getQuestionsOfQuiz(quiz);
@@ -63,9 +70,9 @@ public class QuestionController {
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping("/{quizId}")
-	public Question get(@PathVariable("quizId") Long quizId) {
-		return this.questionService.getQuestion(quizId);
+	@GetMapping("/{questionId}")
+	public Question get(@PathVariable("questionId") Long questionId) {
+		return this.questionService.getQuestion(questionId);
 	}
 	
 	@DeleteMapping("/{questionId}")
