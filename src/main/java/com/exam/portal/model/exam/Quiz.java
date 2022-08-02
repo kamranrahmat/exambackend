@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,9 @@ public class Quiz {
 	private String numberOfQuestions;
 	
 	private boolean active=false;
+	
+	@Column(length = 5000)
+	private String description;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Category category;
@@ -94,6 +98,14 @@ public class Quiz {
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

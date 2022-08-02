@@ -26,7 +26,7 @@ public class Category {
 
 	private String description;
 	
-	@OneToMany(mappedBy = "category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
 	@JsonIgnore//category ka jab bhi data fetch karen to quizes na milen warna bar bar cyclic dependency ho jai gi
 	private Set<Quiz> quizs=new LinkedHashSet<>();
 
